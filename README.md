@@ -24,7 +24,9 @@
   &nbsp;|
   <a href="https://www.modelscope.cn/collections/MiMo-VL-bb651017e02742" target="_blank">🤖️ ModelScope</a>
   &nbsp;|
-  <a href="https://github.com/XiaomiMiMo/MiMo-VL/blob/main/MiMo-VL-Technical-Report.pdf" target="_blank">📔 Technical Report</a>
+  <a href="https://arxiv.org/abs/2506.03569" target="_blank">📔 Technical Report</a>
+  &nbsp;|
+  <a href="https://github.com/XiaomiMiMo/lmms-eval" target="_blank">📊 Evaluation Framework</a>
   &nbsp;|
   <br/>
 </div>
@@ -102,6 +104,10 @@ With our in-house evaluation dataset and GPT-4o judgments, MiMo-VL-7B-RL achieve
 <p align="center">
   <img width="95%" src="https://github.com/XiaomiMiMo/MiMo-VL/raw/main/figures/benchmarks_elo.png?raw=true">
 </p>
+
+### Evaluation Framework
+
+To facilitate open research, we open-source our evaluation framework with all prompts used in [https://github.com/XiaomiMiMo/lmms-eval](https://github.com/XiaomiMiMo/lmms-eval).
 
 ## IV. Deployment
 
