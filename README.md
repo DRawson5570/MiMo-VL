@@ -28,6 +28,8 @@
   &nbsp;|
   <a href="https://github.com/XiaomiMiMo/lmms-eval" target="_blank">📊 Evaluation Framework</a>
   &nbsp;|
+  <a href="./demo/README.md" target="_blank">🔥 Gradio Demo</a>
+  &nbsp;|
   <br/>
 </div>
 
