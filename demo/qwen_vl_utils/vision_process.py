@@ -26,7 +26,7 @@ logger = logging.getLogger(__name__)
 
 IMAGE_FACTOR = 28
 MIN_PIXELS = 4 * 28 * 28
-MAX_PIXELS = 16384 * 28 * 28
+MAX_PIXELS = 4096 * 28 * 28
 MAX_RATIO = 200
 
 VIDEO_MIN_PIXELS = 128 * 28 * 28
@@ -39,7 +39,7 @@ FPS_MAX_FRAMES = 768
 # Set the maximum number of video token inputs.
 # Here, 128K represents the maximum number of input tokens for the VLLM model.
 # Remember to adjust it according to your own configuration.
-VIDEO_TOTAL_PIXELS = int(float(os.environ.get('VIDEO_MAX_PIXELS', 128000 * 28 * 28 * 0.9)))
+VIDEO_TOTAL_PIXELS = int(float(os.environ.get('VIDEO_MAX_PIXELS', 32000 * 28 * 28 * 0.9)))
 logger.info(f"set VIDEO_TOTAL_PIXELS: {VIDEO_TOTAL_PIXELS}")
 
 

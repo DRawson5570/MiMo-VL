@@ -82,20 +82,18 @@ def offline_chat(gr_inputs: dict, gr_history: list, infer_history: list, tempera
             yield response_message, infer_history
 
 
-def online_record_chat(text: str, gr_history: list, gr_webcam_images: list, gr_counter: int, infer_history: list,  temperature: float):
+def online_record_chat(text: str, gr_history: list, gr_webcam_images: list, gr_counter: int, infer_history: list, temperature: float):
     if not gr_webcam_images:
         gr_webcam_images = []
     gr_webcam_images = gr_webcam_images[gr_counter:]
     inputs = {'text': text, 'files': [webp for webp, _ in gr_webcam_images]}
-    yield f'received {len(gr_webcam_images)} new frames, processing...', gr_counter + len(
-        gr_webcam_images), infer_history
-    for response_message, infer_history in offline_chat(
-            inputs, gr_history, infer_history, temperature):
+    yield f'received {len(gr_webcam_images)} new frames, processing...', gr_counter + len(gr_webcam_images), infer_history
+    for response_message, infer_history in offline_chat(inputs, gr_history, infer_history, temperature):
         yield response_message, gr.skip(), infer_history
 
 
 with gr.Blocks() as demo:
-    gr.Markdown("""<center><font size=8>MiMo-7b-VL</center>""")
+    gr.Markdown("""<center><font size=8>MiMo-VL-7B</center>""")
     with gr.Column():
         # gr_title = gr.Markdown('# MiMo-VL')
         
@@ -241,8 +239,7 @@ with gr.Blocks() as demo:
                                 multimodal=False,
                                 chatbot=gr.Chatbot(height=800),
                                 textbox=gr.
-                                Textbox(placeholder=label_translations[
-                                    'gr_chatinterface_ol.textbox.placeholder']
+                                Textbox(placeholder=label_translations['gr_chatinterface_ol.textbox.placeholder']
                                         ['English'],
                                         submit_btn=True,
                                         stop_btn=True),
@@ -255,8 +252,7 @@ with gr.Blocks() as demo:
                                 ],
                             )
 
-                            def cache_webcam(recorded_image: str,
-                                             recorded_images: list):
+                            def cache_webcam(recorded_image: str, recorded_images: list):
                                 if not recorded_images:
                                     recorded_images = []
                                 return recorded_images + [recorded_image]
@@ -286,10 +282,8 @@ with gr.Blocks() as demo:
         return (
             gr.update(label=label_translations['gr_chatinterface_ofl'][lang]),
             gr.update(label=label_translations['gr_chatinterface_ol'][lang]),
-            gr.update(placeholder=label_translations[
-                'gr_chatinterface_ofl.textbox.placeholder'][lang]),
-            gr.update(placeholder=label_translations[
-                'gr_chatinterface_ol.textbox.placeholder'][lang]),
+            gr.update(placeholder=label_translations['gr_chatinterface_ofl.textbox.placeholder'][lang]),
+            gr.update(placeholder=label_translations['gr_chatinterface_ol.textbox.placeholder'][lang]),
             gr.update(label=label_translations['gr_tab_ofl'][lang]),
             gr.update(label=label_translations['gr_tab_ol'][lang]),
             gr.update(label=label_translations['gr_temperature'][lang]),
