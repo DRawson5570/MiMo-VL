@@ -114,7 +114,38 @@ Users can control the thinking mode by appending `/no_think` to queries:
 - **Thinking mode query** (default):  
   *"What is the answer to the question in the image?"*  
 - **Non-thinking mode query**:  
-  *"Identify the text in the image. /no_think"*
+  *"Identify the text in the image. /no_think"*. 
+
+❗️Important: The `/no_think` command must be the very last part of user message, which means after `/no_think`, there shouldn't be any user content like image or video.
+  
+#### Placing Visual Input
+For prompts with a single image or video, always place the visual media before the text. For example:
+
+✅ Good:
+```
+messages = [
+    {
+        "role": "user",
+        "content": [
+            {"type": "image", "image": image_path},
+            {"type": "text",  "text": "Describe the image. /no_think"},
+        ],
+    }
+]
+```
+
+❌ Bad:
+```
+messages = [
+    {
+        "role": "user",
+        "content": [
+            {"type": "text",  "text": "Describe the image. /no_think"},
+            {"type": "image", "image": image_path},
+        ],
+    }
+]
+```
 
 ---
 
